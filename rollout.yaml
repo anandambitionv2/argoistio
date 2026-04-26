@@ -1,0 +1,33 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
+metadata:
+  name: swiggyrollout
+spec:
+  replicas: 2
+  revisionHistoryLimit: 2
+  selector:
+    matchLabels:
+      app: myswiggyapp
+  template:
+    metadata:
+      labels:
+        app: myswiggyapp
+    spec:
+      containers:
+      - name: myswiggyapp
+        image: acrargotest.azurecr.io/frontend
+        imagePullPolicy: Always
+  strategy:
+    canary:
+      canaryService: canary-svc  # required
+      stableService: stable-svc  # required
+      trafficRouting:
+        istio:
+          virtualService:
+            name: rollout-vsvc   # required
+            routes:
+            - primary            # optional if there is a single route in VirtualService, required otherwise
+      steps:
+      - setWeight: 5
+      - pause:
+          duration: 10m
