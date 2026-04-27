@@ -6,8 +6,8 @@ spec:
   ports:
   - port: 80
     targetPort: http
-    protocol: TCP
-    name: http
+    
+    
   selector:
     app: myswiggyapp
     # This selector will be updated with the pod-template-hash of the canary ReplicaSet. e.g.:
@@ -21,8 +21,8 @@ spec:
   ports:
   - port: 80
     targetPort: http
-    protocol: TCP
-    name: http
+   
+    
   selector:
     app: myswiggyapp
     # This selector will be updated with the pod-template-hash of the stable ReplicaSet. e.g.:
