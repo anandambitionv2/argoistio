@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: myswiggyapp
-        image: acrargotest.azurecr.io/frontend
+        image: acrargotest.azurecr.io/frontend:2173
         imagePullPolicy: Always
   strategy:
     canary:
