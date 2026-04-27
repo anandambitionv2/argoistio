@@ -28,6 +28,6 @@ spec:
             routes:
             - primary            # optional if there is a single route in VirtualService, required otherwise
       steps:
-      - setWeight: 5
+      - setWeight: 70
       - pause:
           duration: 10m
