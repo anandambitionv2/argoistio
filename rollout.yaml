@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: myswiggyapp
-        image: acrargotest.azurecr.io/frontend:2171
+        image: acrargotest.azurecr.io/frontend:2173
         imagePullPolicy: Always
   strategy:
     canary:
@@ -30,4 +30,4 @@ spec:
       steps:
       - setWeight: 70
       - pause:
-          duration: 10m
+          duration: 1m
